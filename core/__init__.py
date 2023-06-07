@@ -2,7 +2,7 @@ from flask import Flask
 import os
 from .extensions import db, migrate, login_manager
 from dotenv import find_dotenv, load_dotenv
-from .models import User
+from .models import User, Product
 
 load_dotenv(find_dotenv())
 

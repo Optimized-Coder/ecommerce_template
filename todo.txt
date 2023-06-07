@@ -1,0 +1,11 @@
+back-end:
+    product model
+    flask admin
+    stripe integration
+
+front-end:
+    product index
+    product detail
+    listing box
+    header
+    footer

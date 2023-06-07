@@ -3,7 +3,7 @@ from flask_login import login_user, logout_user
 from ..models import User
 from werkzeug.security import check_password_hash
 
-auth = Blueprint('auth', __name__, url_prefix='/admin')
+auth = Blueprint('auth', __name__, url_prefix='/auth')
 
 @auth.route('/login/', methods=['GET', 'POST'])
 def login():
