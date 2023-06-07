@@ -1,0 +1,33 @@
+<header class="header__wrapper">
+    <section class="header__logo">
+        <h1>Store Name</h1>
+    </section>
+    <nav class="nav__wrapper">
+        <ul class="nav__items">
+            <li class="nav__item">
+                <a href="" 
+                class="nav__item-link">
+                    Products
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <img src="{{url_for('static', filename='icons/bars-solid.svg')}}" 
+    alt="Menu" 
+    class="mobile__nav-svg"
+    id="mobileNavBtn">
+</header>
+<nav class="mobile__nav-wrapper">
+    <ul class="mobile__nav" id="mobileNav">
+        {% if current_user.is_authenticated %}
+        <li class="mobile__nav-item mobile__nav-greeting">
+            Hello, {{current_user.name}}
+        </li>
+        {% endif %}
+        <a href="{{url_for('products.get_all_products')}}" class="mobile__nav-link">
+        <li class="mobile__nav-item"> 
+                Products
+        </li>
+        </a>
+    </ul>
+</nav>

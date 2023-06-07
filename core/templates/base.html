@@ -1,15 +1,33 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ecommerce App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#32025A"/>
+    <meta name="description" content="Join the brotherhood! With Brotherhood Records you can not only buy records to add to your collection, but also keep track and share your favourite music">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>
+        {{title}}
+    </title>
 </head>
-
 <body>
-    {% block main %}{% endblock %}
-</body>
+    {% include 'components/header.html' %}
+    <!-- flashed messages -->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 
+    
+
+    {% block content %}
+
+    {% endblock %}
+
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+</body>
 </html>

@@ -1,6 +1,4 @@
 back-end:
-    product model
-    flask admin
     stripe integration
 
 front-end:

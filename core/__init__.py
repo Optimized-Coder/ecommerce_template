@@ -3,6 +3,8 @@ import os
 from .extensions import db, migrate, login_manager
 from dotenv import find_dotenv, load_dotenv
 from .models import User, Product
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
 
 load_dotenv(find_dotenv())
 
@@ -15,6 +17,12 @@ def create_app():
     # initialize extensions
     db.init_app(app)
     migrate.init_app(app, db)
+
+    admin = Admin(app)
+
+    # flask admin
+    admin.add_view(ModelView(User, db.session))
+    admin.add_view(ModelView(Product, db.session))
 
     # flask login setup
     login_manager.init_app(app)

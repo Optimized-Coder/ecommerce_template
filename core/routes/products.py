@@ -1,15 +1,21 @@
 from flask import Blueprint
+import os
+import stripe
 
-product = Blueprint('product', __name__, url_prefix='/products')
+products = Blueprint('products', __name__, url_prefix='/products')
 
-@product.route('/', methods=['GET'])
+@products.route('/', methods=['GET'])
 def get_all_products():
     return '<h1>Products route</h1>'
 
-@product.route('/<int:product_id>/', methods=['GET'])
+@products.route('/<int:product_id>/', methods=['GET'])
 def get_single_product(product_id):
     return f'<h1>Product id: {product_id}</h1>'
 
-@product.route('/<int:product_id>/create-checkout-session/', methods=['GET', 'POST'])
+# DOMAIN = 'http://127.0.0.1:5000/'
+
+# stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
+
+@products.route('/<int:product_id>/create-checkout-session/', methods=['GET', 'POST'])
 def create_checkout_session(product_id):
     pass
