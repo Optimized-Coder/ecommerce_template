@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, render_template, request
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_mail import Message
@@ -56,9 +56,17 @@ def create_app():
         msg.body=f'Thanks for your order {name}'
         mail.send(msg)
         print('message sent')
+        print(session)
         
+        context = {
+            'name': name,
+            'title': 'Order Successful'
+        }
 
-        return 'Thanks for your order'
+        return render_template(
+            'stripe/success.html',
+            **context
+        )
 
     @app.route('/order-cancelled/', methods=['GET'])
     def order_cancelled():

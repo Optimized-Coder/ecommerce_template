@@ -38,6 +38,20 @@ a {
     margin: 2rem 4rem;
 }
 
+.container__secondary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 75vh;
+}
+
+p.paragraph__content {
+    font-size: 1.5rem;
+    letter-spacing: 0.05rem;
+    padding: 3rem 0;
+}
+
 
 /* REUSABLE COMPONENTS */
 
