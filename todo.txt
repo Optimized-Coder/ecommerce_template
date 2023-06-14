@@ -1,5 +1,2 @@
-back-end:
-    stripe integration
-
-front-end:
-    product detail
+- order success html
+- order cancelled html

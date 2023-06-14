@@ -44,6 +44,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 70%;
+    width: 50%;
 } .product_details p {
     padding: .8rem 0;
 } a.product_details-link {
@@ -55,12 +56,11 @@
     aspect-ratio: 1 / 1;
 }  */
 .product__img {
-    height: 12rem;
+    width: 16rem;
     object-fit: contain;
-}
-
-.product__img:hover {
-    animation: expand 1.4s;
+    aspect-ratio: 1 / 1;
+    padding: 0;
+    margin: 0;
 }
 
 .product__page-wrapper {
@@ -68,7 +68,7 @@
     align-items: stretch;
     justify-content: space-around;
     flex-direction: column;
-    min-height: 70vh;
+    min-height: 65vh;
 }
 
 .product__page-main {

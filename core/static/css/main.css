@@ -28,8 +28,8 @@ a {
 
     /* VARIABLES */
     --main: #FFF;
-    --dark: rgb(51, 2, 90);
-    --secondary: #295a02;
+    --dark: #000;
+    --secondary: #0000ff;
     --error: rgb(167, 0, 0);
 }
 
