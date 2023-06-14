@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, flash, redirect
+from flask_mail import Message
 from ..models import Product
 import os
 import stripe
@@ -56,13 +57,12 @@ def create_checkout_session(id):
                 },
             ],
             mode='payment',
-            success_url=DOMAIN + 'order-success/',
+            success_url=DOMAIN + 'order-success?session_id={CHECKOUT_SESSION_ID}',
             cancel_url=DOMAIN + 'order-cancelled/',
         )
     except Exception as e:
         return str(e)
     flash('Purchase Successful!', 'success')
-
     return redirect(
         checkout_session.url,
         code=303

@@ -1,10 +1,15 @@
-from flask import Flask
-import os
-from .extensions import db, migrate, login_manager
-from dotenv import find_dotenv, load_dotenv
-from .models import User, Product
+from flask import Flask, render_template, request
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
+from flask_mail import Message
+
+import stripe
+
+import os
+
+from .extensions import db, migrate, login_manager, mail
+from dotenv import find_dotenv, load_dotenv
+from .models import User, Product
 
 load_dotenv(find_dotenv())
 
@@ -14,11 +19,48 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
+    app.config['MAIL_SERVER']='sandbox.smtp.mailtrap.io'
+    app.config['MAIL_PORT'] = 2525
+    app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
+    app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+    app.config['MAIL_USE_TLS'] = True
+    app.config['MAIL_USE_SSL'] = False
+    
     # initialize extensions
     db.init_app(app)
     migrate.init_app(app, db)
+    mail.init_app(app)
 
     admin = Admin(app)
+
+    stripe.api_key = os.environ.get('STRIPE_API_KEY')
+
+    @app.route('/order-success/', methods=['GET'])
+    def order_success():
+        session_id = request.args.get('session_id')
+
+        session = stripe.checkout.Session.retrieve(session_id)
+        customer_email = session.customer_details.email
+        customer_name = session.customer_details.name
+
+        email = customer_email if customer_email else "Unknown"
+        name = customer_name if customer_name else "Unknown"
+
+        msg = Message(
+            'Order Confirmation',
+            sender='admin@store.com',
+            recipients=[email]
+        )
+        msg.body=f'Thanks for your order {name}'
+        mail.send(msg)
+        print('message sent')
+        
+
+        return 'Thanks for your order'
+
+    @app.route('/order-cancelled/', methods=['GET'])
+    def order_cancelled():
+        return 'order cancelled'
 
     # flask admin
     admin.add_view(ModelView(User, db.session))
