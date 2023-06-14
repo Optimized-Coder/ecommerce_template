@@ -112,14 +112,6 @@
         "documentation": {}
     },
     {
-        "label": "request",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
         "label": "Blueprint",
         "importPath": "flask",
         "description": "flask",
@@ -176,27 +168,12 @@
         "documentation": {}
     },
     {
-        "label": "Message",
-        "importPath": "flask_mail",
-        "description": "flask_mail",
+        "label": "os",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "flask_mail",
-        "documentation": {}
-    },
-    {
-        "label": "Message",
-        "importPath": "flask_mail",
-        "description": "flask_mail",
-        "isExtraImport": true,
-        "detail": "flask_mail",
-        "documentation": {}
-    },
-    {
-        "label": "Mail",
-        "importPath": "flask_mail",
-        "description": "flask_mail",
-        "isExtraImport": true,
-        "detail": "flask_mail",
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
         "documentation": {}
     },
     {
@@ -206,15 +183,6 @@
         "importPath": "stripe",
         "description": "stripe",
         "detail": "stripe",
-        "documentation": {}
-    },
-    {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
         "documentation": {}
     },
     {
@@ -231,6 +199,14 @@
         "description": "flask_migrate",
         "isExtraImport": true,
         "detail": "flask_migrate",
+        "documentation": {}
+    },
+    {
+        "label": "Mail",
+        "importPath": "flask_mail",
+        "description": "flask_mail",
+        "isExtraImport": true,
+        "detail": "flask_mail",
         "documentation": {}
     },
     {

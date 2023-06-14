@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, request
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_mail import Message
@@ -15,10 +15,12 @@ load_dotenv(find_dotenv())
 
 def create_app():
     app = Flask(__name__)
+    # App Config
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URI')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
+    # mail config
     app.config['MAIL_SERVER']='sandbox.smtp.mailtrap.io'
     app.config['MAIL_PORT'] = 2525
     app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
@@ -30,11 +32,11 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
     mail.init_app(app)
-
     admin = Admin(app)
 
     stripe.api_key = os.environ.get('STRIPE_API_KEY')
 
+    # stripe session routes
     @app.route('/order-success/', methods=['GET'])
     def order_success():
         session_id = request.args.get('session_id')

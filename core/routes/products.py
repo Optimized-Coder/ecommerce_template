@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, request, flash, redirect
-from flask_mail import Message
 from ..models import Product
 import os
 import stripe

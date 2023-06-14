@@ -1,8 +1,4 @@
-from flask import render_template, request, Blueprint
-from flask_mail import Message
-from ..extensions import mail
-import stripe
-import os
+from flask import render_template, Blueprint
 
 main = Blueprint('main', __name__, url_prefix='/')
 

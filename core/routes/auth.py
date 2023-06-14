@@ -21,8 +21,6 @@ def login():
         else:
             print('login failed')
             return redirect(url_for('auth.login'))
-
-        return render_template('auth/login.html')
     
     context = {
         'title': 'Login | Store Name',
