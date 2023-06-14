@@ -1,0 +1,203 @@
+/* div {
+    border: 1px solid black;
+} */
+
+.product_wrapper,
+.product__page-wrapper {
+    margin: 1rem 0;
+    min-height: 20rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.08rem;
+
+    background-color: #fafafa;
+    color: var(--dark);
+}
+
+.product_wrapper {
+
+    /* contains all information for each product
+        img
+        details (title, artist, price)
+        Details link
+    */
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
+} .product_wrapper a,
+.product__page-wrapper a {
+    color: var(--secondary);
+}
+.product_wrapper a:hover,
+.product__page-wrapper a:hover {
+    text-decoration: underline;
+    color: var(--dark);
+    border-radius: 0.2rem;
+}
+
+.product_details {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70%;
+} .product_details p {
+    padding: .8rem 0;
+} a.product_details-link {
+    color: var(--dark);
+}
+
+/* .product__img-wrapper {
+    height: 90%;
+    aspect-ratio: 1 / 1;
+}  */
+.product__img {
+    height: 12rem;
+    object-fit: contain;
+}
+
+.product__img:hover {
+    animation: expand 1.4s;
+}
+
+.product__page-wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    flex-direction: column;
+    min-height: 60vh;
+}
+
+.product__page-main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 90%;
+    padding: 1rem 0 3rem 0;
+    text-align: center;
+}
+
+.product__page-img {
+    width: 20rem;
+    padding: 0 2rem;
+    object-fit: contain;
+    aspect-ratio: 1 / 1;
+}
+
+
+        /* 
+
+        product page wrapper ===> bg #f9f9f9 ?
+            slightly larger than product_wrapper
+        <div> flex column
+            <div> flex center space around
+                img     |   product detail
+            </div>
+            <div> flex center
+                buy btn
+            </div>
+        </div>
+
+        */
+
+
+.genre__search-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+} .genre__search-title {
+    text-align: center;
+    padding-bottom: 1rem;
+} .genre__search-title h2 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    letter-spacing: 0.03em;
+}
+
+.genre__search-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 5rem;
+    
+    background-color: var(--main);
+} .genre__search-link{
+    font-size: 1.2rem;
+    padding: .5rem;
+}.genre__search-link:hover {
+    color: #020202;
+    text-decoration: underline;
+}
+
+.sort__form-wrapper {
+    padding: 1rem 0;
+}
+
+.sort__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.buy_now {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.buy_form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.product__ctas {
+    display: flex;
+    flex-direction: column;
+}
+
+.product_link {
+    margin: 1rem 0;
+}
+
+
+/* cancel page */
+
+.para-block {
+    font-size: 1.2rem;
+    letter-spacing: 0.05rem;
+    font-weight: 300;
+    line-height: 2rem;
+
+    padding: 1rem 0;
+}
+
+
+
+@media screen and (min-width: 1440px){
+    .product__page-wrapper {
+        padding: 0 3rem;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .product_wrapper {
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-around;
+    } .product_wrapper div {
+        padding: .75rem 0;
+    }
+}

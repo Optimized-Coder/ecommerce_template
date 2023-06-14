@@ -1,4 +1,5 @@
-from flask import Blueprint
+from flask import Blueprint, render_template, request
+from ..models import Product
 import os
 import stripe
 
@@ -6,7 +7,19 @@ products = Blueprint('products', __name__, url_prefix='/products')
 
 @products.route('/', methods=['GET'])
 def get_all_products():
-    return '<h1>Products route</h1>'
+    sort = request.args.get('sort')
+
+    context = {
+        'title': 'Products | Store Name',
+        'products': Product.query
+        .order_by(sort)
+        .all()
+    }
+
+    return render_template(
+        'products/products.html',
+        **context
+        )
 
 @products.route('/<int:product_id>/', methods=['GET'])
 def get_single_product(product_id):

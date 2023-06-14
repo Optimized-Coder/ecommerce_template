@@ -23,8 +23,15 @@ def login():
             return redirect(url_for('auth.login'))
 
         return render_template('auth/login.html')
+    
+    context = {
+        'title': 'Login | Store Name',
+    }
 
-    return render_template('auth/login.html')
+    return render_template(
+        'auth/login.html',
+        **context
+    )
 
 @auth.route('/logout/', methods=['GET'])
 def logout():

@@ -2,8 +2,5 @@ back-end:
     stripe integration
 
 front-end:
-    product index
     product detail
-    listing box
-    header
     footer

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="container">
+        <div class="genre__search-wrapper">
+            <div class="genre__search-title">
+                <h2>
+                    Products
+                </h2>
+            </div>
+            <!-- <div class="category__search-links">
+                {% for category in categories %}
+                <a href="{{url_for('product.product_by_category', category=category)}}" class="genre__search-link">{{genre}}</a>
+                {% endfor %}
+            </div> -->
+        </div>
+        <div class="sort__form-wrapper">
+            <form action="" method="GET" class="sort__form">
+                <select name="sort" id="sort" title="Sort Products">
+                    <option value="name">Name</option>
+                    <option value="price">Price</option>
+                </select>
+                <input type="submit" value="Sort Products">
+            </form>
+        </div>
+        
+        {% for product in products  %}
+        <div class="product_wrapper slider">
+            <div class="product__img-wrapper">
+                <img src="{{product.image_url}}" 
+                alt="{{product.name}}" 
+                class="product__img"
+                loading="lazy">
+            </div>
+            <div class="product_details">
+                    <p><strong>{{product.name}}</strong></p>
+                    <p>£{{product.price}}</p>
+                    <p>{{product.description}}</p>
+            </div>
+            <div class="product__ctas">
+                <div class="product_link">
+                    <a href="{{url_for('products.get_single_product', product_id=product.id)}}">
+                        View More
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+            {% endfor %}
+    </main>
+{% endblock %}
