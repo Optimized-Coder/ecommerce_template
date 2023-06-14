@@ -3,4 +3,3 @@ back-end:
 
 front-end:
     product detail
-    footer

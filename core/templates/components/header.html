@@ -7,6 +7,12 @@
             <li class="nav__item">
                 <a href="" 
                 class="nav__item-link">
+                    Home
+                </a>
+            </li>
+            <li class="nav__item">
+                <a href="" 
+                class="nav__item-link">
                     Products
                 </a>
             </li>
@@ -24,6 +30,11 @@
             Hello, {{current_user.name}}
         </li>
         {% endif %}
+        <a href="{{url_for('products.get_all_products')}}" class="mobile__nav-link">
+        <li class="mobile__nav-item"> 
+                Home
+        </li>
+        </a>
         <a href="{{url_for('products.get_all_products')}}" class="mobile__nav-link">
         <li class="mobile__nav-item"> 
                 Products

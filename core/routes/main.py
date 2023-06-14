@@ -6,10 +6,13 @@ main = Blueprint('main', __name__, url_prefix='/')
 def index():
     return render_template('index.html')
 
-@main.route('/order-success', methods=['GET'])
+@main.route('/order-success/', methods=['GET'])
 def order_success():
-    return 'order successful'
+    return render_template(
+        'stripe/success.html',
+        title='Order Success'
+    )
 
-@main.route('/order-cancelled', methods=['GET'])
+@main.route('/order-cancelled/', methods=['GET'])
 def order_cancelled():
     return 'order cancelled'
