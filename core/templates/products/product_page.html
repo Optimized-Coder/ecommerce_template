@@ -1,6 +1,30 @@
 {% extends 'base.html' %}
-    {% block content %}
 
-        <p>Product Page</p>
+{% block content %}
+    <div class="container">
+        <div class="product__page-wrapper">
+            <div class="product__page-main">
+                <div class="product__page-img-wrapper">
+                    <img src="{{product.image_url}}" 
+                    alt="{{product.name}}" 
+                    class="product__page-img"
+                    loading="lazy">
+                </div>
+                <div class="product_details">
+                        <p>{{product.name}}</p>
+                        <p>£{{product.price}}</p>
+                        <p>{{product.description}}</p>
+                </div>
+            </div>
+            <div class="product__page-buy">
+                <div class="buy_now">
+                    <form action="{{url_for('products.create_checkout_session', id=product.id)}}" method="post" class="buy_form">
+                        <input type="submit" value="Buy Now!" class="buy_btn">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+{% endblock %}
 
-    {% endblock %}
